@@ -20,9 +20,11 @@ library(ggplot2)
 ## What is mean total number of steps taken per day?
 ### Mean and median number of steps taken each day
 ```{r}
+daily.data <- aggregate(steps ~ date, data, sum)
 summary(daily.data$steps, digits = 5)
 ```
 as showed in the summary, median is 10765 and mean is 10766.
+
 ### Histogram of the total number of steps taken each day
 ```{r}
 daily.data <- aggregate(steps ~ date, data, sum)
@@ -39,6 +41,7 @@ plot(mean.interval$interval, mean.interval$steps, type = "l",
      ylab="Average number of steps per interval", 
      main="Time-series of the average number of steps per intervals")
 ```
+
 ### The 5-minute interval that, on average, contains the maximum number of steps
 ```{r}
 max.position <- which(mean.interval$steps == max(mean.interval$steps))
@@ -55,6 +58,7 @@ NA.numbers <- sum(is.na(data$steps))
 print(NA.numbers) # The number of NA’s is 2304
 data$steps[is.na(data$steps)] <- mean(data$steps, na.rm = T) 
 ```
+
 ### Histogram of the total number of steps taken each day after missing values are imputed
 ```{r}
 complete.daily.data <- aggregate(steps ~ date, data, sum)
