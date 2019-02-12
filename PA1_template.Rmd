@@ -48,7 +48,7 @@ max.position <- which(mean.interval$steps == max(mean.interval$steps))
 max.interval <- mean.interval[max.position, ]
 print(max.interval)
 ```
-The 5-minute interval that contains the maximum of steps is 835 which averaged at 206 steps
+The 5-minute interval that contains the maximum of steps is 835 which averaged at 206 steps.
 
 
 ## Imputing missing values
